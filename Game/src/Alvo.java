@@ -1,80 +1,18 @@
-/* import java.util.ArrayList;
-
 public class Alvo {
 
-    protected static int vida = 3;
-    private int posx, posy;
-    private char cor;
-
-    public Alvo(int posx, int posy, char cor) {
-        this.posx = posx;
-        this.posy = posy;
-        this.cor = cor;
-    }
-
-    public static int getVida() {
-        return vida;
-    }
-
-    public int getPosx() {
-        return posx;
-    }
-
-    public void setPosx(int posx) {
-        this.posx = posx;
-    }
-
-    public int getPosy() {
-        return posy;
-    }
-
-    public void setPosy(int posy) {
-        this.posy = posy;
-    }
-
-    public char getCor() {
-        return cor;
-    }
-
-    public void setCor(char cor) {
-        this.cor = cor;
-    }
-    // nova prospota para classe Atira
-
-    public char Atira(int posicaoX, int posicaoY, ArrayList<Alvo> alvos) {
-        Alvo tiro = new Alvo(posicaoX, posicaoY, ' ');
-        if (posicaoX == this.posx && posicaoY == this.posy) {
-            tiro.setCor(this.getCor());
-            return tiro.getCor();
-        } else {
-            return 'N';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Alvo [cor=" + cor + ", posx=" + posx + ", posy=" + posy + "]";
-    }
-
-} */
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-
-public class Alvo {
-
-    // Atributos do objeto Alvo 
+    // Atributos do objeto Alvo
     private static int vida = 3;
     private int posx, posy;
     private char cor;
 
-    //Metodo Construtor
+    // Metodo Construtor
     public Alvo(int posx, int posy, char cor) {
         this.posx = posx;
         this.posy = posy;
         this.cor = cor;
     }
 
-    // Metodos GET SET 
+    // Metodos GET SET
     public static int getVida() {
         return vida;
     }
@@ -102,11 +40,11 @@ public class Alvo {
     public void setCor(char cor) {
         this.cor = cor;
     }
-    
-    // Metodo Atira, aqui e verificado se as posicoes passadas pelo jogador
-    //no eixo x e y conferem com as possicoes do alvo, se as posicoes forem iguais, o
-    // jogador ganha uma vida, caso contrario ele perde 
 
+    /*
+     * Metodo para verificar a cor do alvo, pois dependento da cor é incrementado a
+     * vida, ou descrementado ou não nada é feito.
+     */
     public char Atira(int posicaoX, int posicaoY) {
         if (posicaoX == this.posx && posicaoY == this.posy) {
             if (this.cor == 'B') {
@@ -120,6 +58,9 @@ public class Alvo {
         return 'N';
     }
 
+    /*
+     * Metodo para escrever os atributos do objeto
+     */
     @Override
     public String toString() {
         return "Alvo [cor=" + cor + ", posx=" + posx + ", posy=" + posy + "]";

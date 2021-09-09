@@ -15,6 +15,7 @@ public class App {
 
     }
 
+    /* Metodo para criar os alvos em posicoes aleatoria e diferentes */
     private static void criarAlvos(ArrayList<Alvo> alvos) {
         Random random = new Random();
         Alvo alvo;
@@ -37,6 +38,10 @@ public class App {
         }
     }
 
+    /*
+     * Metodo que retorna 'false' se existir algum alvo com as mesmas posicoes, ou
+     * 'true' se nao tem nenhum alvo com as coordenadas passadas como parametros
+     */
     private static boolean verificarPosicoes(int x, int y, ArrayList<Alvo> alvos) {
         for (Alvo alvo : alvos) {
             if (alvo.getPosx() == x && alvo.getPosy() == y) {
@@ -46,6 +51,10 @@ public class App {
         return true;
     }
 
+    /*
+     * Metodo que retorna 'true' se existir o alvo com as coordenadas passadas como
+     * parametros, ou 'false' caso não exista
+     */
     private static boolean pesquisaAlvo(int x, int y, ArrayList<Alvo> alvos) {
         for (Alvo alvo : alvos) {
             if (alvo.getPosx() == x && alvo.getPosy() == y) {
@@ -55,6 +64,9 @@ public class App {
         return false;
     }
 
+    /*
+     * Metodo que retorna a posicao das coordenados do alvo passadas como paramentro
+     */
     private static int retornaPosicaoAlvo(int x, int y, ArrayList<Alvo> alvos) {
         for (Alvo alvo : alvos) {
             if (alvo.getPosx() == x && alvo.getPosy() == y) {
@@ -64,6 +76,7 @@ public class App {
         return -1;
     }
 
+    /* Metodo para mostrar todos os alvos no ArrayList */
     private static void exibirAlvos(ArrayList<Alvo> alvos) {
         String aux = "";
         for (Alvo alvo : alvos) {
@@ -72,6 +85,7 @@ public class App {
         System.out.println(aux);
     }
 
+    /* Metodo para iniciar o jogo */
     private static void start(ArrayList<Alvo> alvos) {
 
         Random random = new Random();
@@ -80,10 +94,10 @@ public class App {
 
         while (qtdTiros != 0 && Alvo.getVida() != 0) {
 
-            System.out.print("\n\nInsira a posicao 'X' dos eu tiro(1-5): ");
+            System.out.print("\n\nInsira a posicao 'X' do seu tiro com um número inteiro(de '1' à '5'): ");
             int tiroX = scan.nextInt();
 
-            System.out.print("Insira a posicao 'Y' dos eu tiro(1-5): ");
+            System.out.print("Insira a posicao 'Y' do seu tiro om um número inteiro(de '1' à '5'): ");
             int tiroY = scan.nextInt();
 
             if (!pesquisaAlvo(tiroX, tiroY, alvos)) {
